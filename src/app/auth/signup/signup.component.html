@@ -1,0 +1,30 @@
+<section class="signup-form">
+  <!--  fxLayoutAlign="center center" which means -> first value is for main axis and second value is for
+    cross axis  -->
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <mat-form-field hintLabel="Should be email address only">
+      <!-- Using ngModel -> we are making this input field as Template forms field -->
+      <input type="email" matInput placeholder="Email" ngModel name="email" email required #emailInp="ngModel">
+      <mat-error *ngIf="emailInp.hasError('required')">Email Cannot be empty</mat-error>
+      <mat-error *ngIf="!emailInp.hasError('required')">Email is invalid</mat-error>
+    </mat-form-field>
+    <mat-form-field hintLabel="Should be of 3 character's">
+      <input type="password" matInput placeholder="Password" ngModel name="password" required minlength="3" #pass="ngModel">
+      <mat-hint align="end">{{pass.value?.length}} / 6</mat-hint>
+      <mat-error *ngIf="pass.hasError('minlength')">password should be max of 3 character </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="dobpicker" placeholder="Your Birthday" [max]="maxDate" ngModel name="birthday"
+        required>
+      <mat-datepicker-toggle matSuffix [for]="dobpicker"></mat-datepicker-toggle>
+      <mat-datepicker #dobpicker></mat-datepicker>
+    </mat-form-field>
+    <!-- <mat-form-field> -->
+    <mat-checkbox ngModel name="agree" required labelPosition="after" [color]="'primary'">Agree to Terms and Conditions</mat-checkbox>
+    <!-- </mat-form-field> -->
+    <div fxLayout="row" fxFlexAlign="center">
+      <button type="submit" mat-raised-button [color]="'primary'" [disabled]="myForm.invalid">Submit</button>
+      <button fxFlexOffset="150px" type="reset" mat-raised-button [color]="'warn'">Cancel</button>
+    </div>
+  </form>
+</section>
