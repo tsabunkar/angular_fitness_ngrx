@@ -6,7 +6,10 @@ import {
   MatFormFieldModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatListModule
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +22,10 @@ import {
     MatDatepickerModule,
     MatNativeDateModule, // you must import one of the following modules at your
     // application root: MatNativeDateModule, MatMomentDateModule, or provide a custom implementation.
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
   ],
   declarations: [],
   providers: [],
