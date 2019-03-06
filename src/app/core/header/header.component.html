@@ -1,0 +1,33 @@
+<mat-toolbar [color]="'primary'">
+  <!-- mat-toolbar is follows Flex-layout architecture So, below divs are placed in row direction
+      (from left to right)-->
+
+  <!-- <div fxHide.sm fxHide.md fxHide.lg fxHide.xl> -->
+  <!-- Same as above code, hide this div for screen greater than xs -> gt-xs -->
+  <div fxHide.gt-xs>
+    <!-- <button mat-icon-button (click)="sideNav.toggle()"> -->
+    <button mat-icon-button (click)="onToogleSideNav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a [routerLink]="['/']" routerLinkActive="router-link-active">LOGO</a>
+  </div>
+  <!-- fxHide -> hide the complete container, for very smaller devices (xs->width = 600px) -->
+  <div fxFlex fxLayout="row" fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout="row" fxLayoutGap="10px" class="navigation-items">
+      <li>
+        <a [routerLink]="['/signin']" routerLinkActive="router-link-active">Login</a>
+      </li>
+      <li>
+        <a [routerLink]="['/signup']" routerLinkActive="router-link-active">Signup</a>
+      </li>
+      <li>
+        <a [routerLink]="['/training']" routerLinkActive="router-link-active">Training</a>
+      </li>
+      <li>
+        <a>Logout</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

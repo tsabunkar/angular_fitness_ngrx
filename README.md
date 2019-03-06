@@ -253,13 +253,14 @@ https://angular.io/guide/styleguide#application-structure-and-ngmodules
     (*) create a feature module named SharedModule in a shared folder; for example, app/shared/shared.module.ts defines SharedModule.
     (*) declare components, directives, and pipes in a shared module when those items will be re-used and referenced by the components declared in other feature modules.
     (*) do not providing services in shared modules. Services are usually singletons that are provided once for the entire application or in a particular feature module
-    (*) import all modules required by the assets in the SharedModule; for example, CommonModule and FormsModule.
+    (*) **import all modules required by the assets in the SharedModule; for example, CommonModule and FormsModule.
     (*) declare all components, directives, and pipes in the SharedModule
     (*) export all symbols from the SharedModule that other feature modules need to use
     (*) Avoid specifying app-wide singleton providers in a SharedModule
 *) Core module
     (*) create a feature module named CoreModule in a core folder (e.g. app/core/core.module.ts defines CoreModule).
     (*) calling the application-wide core module, CoreModule. Importing CoreModule into the root AppModule reduces its complexity and emphasizes its role as orchestrator of the application as a whole.
+    (*) The footer- and header folders contains the global component-files, statically used across the entire application. These files will appear on every page in the application.
     (*) put a singleton service whose instance will be shared throughout the application in the CoreModule (e.g. ExceptionService and LoggerService).
     (*) import all modules required by the assets in the CoreModule (e.g. CommonModule and FormsModule).
     (*) gather application-wide, single use components in the CoreModule. Import it once (in the AppModule) when the app starts and never import it anywhere else. (e.g. NavComponent and SpinnerComponent).
@@ -290,3 +291,10 @@ https://angular.io/guide/styleguide#overall-structural-guidelines
 
 
 =====================================================================================================
+To Generate Core Module :
+ng g m core --dry-run --module app.module
+ng g c core/side-nav --module core.module --dry-run
+ng g c core/header --module core.module --dry-run
+
+To Generate Shared Module :
+ng g m shared  --module app.module --dry-run

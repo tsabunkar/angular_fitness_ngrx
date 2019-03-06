@@ -1,0 +1,18 @@
+<a mat-list-item [routerLink]="['/signin']" routerLinkActive="router-link-active" (click)="sideNavigation.close()">
+  <mat-icon>how_to_reg</mat-icon>
+  <span class="nav-caption">Signup</span>
+</a>
+<a mat-list-item [routerLink]="['/signup']" routerLinkActive="router-link-active" (click)="sideNavigation.close()">
+  <mat-icon>face</mat-icon>
+  <span class="nav-caption">Signin</span>
+</a>
+<a mat-list-item [routerLink]="['/training']" routerLinkActive="router-link-active" (click)="sideNavigation.close()">
+  <mat-icon>fitness_center</mat-icon>
+  <span class="nav-caption">Training</span>
+</a>
+<mat-list-item>
+  <button mat-icon-button (click)="sideNavigation.close()">
+    <mat-icon>eject</mat-icon>
+    <span class="nav-caption">Logout</span>
+  </button>
+</mat-list-item>
