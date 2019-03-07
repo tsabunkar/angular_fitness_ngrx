@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewTrainingComponent implements OnInit {
 
+  cardColor: Boolean;
   constructor() { }
 
   ngOnInit() {
