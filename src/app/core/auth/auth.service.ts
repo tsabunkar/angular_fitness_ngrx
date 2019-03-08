@@ -47,7 +47,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return this.user !== null;
+    return this.user != null;
   }
 
   private navigateToTraining() {
