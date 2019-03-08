@@ -15,4 +15,8 @@ a :active {
 }
 
 
+.logout-anchor{
+  cursor: pointer;
+}
+
 

@@ -16,17 +16,17 @@
   <!-- fxHide -> hide the complete container, for very smaller devices (xs->width = 600px) -->
   <div fxFlex fxLayout="row" fxLayoutAlign="end" fxHide.xs>
     <ul fxLayout="row" fxLayoutGap="10px" class="navigation-items">
-      <li>
+      <li *ngIf="!isAuthenticated">
         <a [routerLink]="['/signin']" routerLinkActive="router-link-active">Login</a>
       </li>
-      <li>
+      <li *ngIf="!isAuthenticated">
         <a [routerLink]="['/signup']" routerLinkActive="router-link-active">Signup</a>
       </li>
-      <li>
+      <li *ngIf="isAuthenticated">
         <a [routerLink]="['/training']" routerLinkActive="router-link-active">Training</a>
       </li>
-      <li>
-        <a>Logout</a>
+      <li *ngIf="isAuthenticated">
+        <a class="logout-anchor" (click)="onLogout()">Logout</a>
       </li>
     </ul>
   </div>

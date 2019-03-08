@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { LoginComponent } from './auth/login/login.component';
     RouterModule,
     // FlexLayoutModule,
     // CustomMaterialModule
-    SharedModule // *Instead of exporting all the commnly used modules separately, directly import shared
+    SharedModule, // *Instead of exporting all the commnly used modules separately, directly import shared
     // * module which has imported all these commonly used module in it
+    ReactiveFormsModule // Only used in login Component
   ],
   exports: [
     SideNavComponent,
