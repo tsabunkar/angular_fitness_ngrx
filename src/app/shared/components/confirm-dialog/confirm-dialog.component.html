@@ -1,0 +1,11 @@
+<section>
+  <h1 mat-dialog-title>Are You Sure, Want to Quit</h1>
+  <div mat-dialog-content>
+    Remeber your have a failed soo many times, dont repeat it Again!
+    <p>You already got {{progress}}% of shit, Don't waste your effort</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="{value : 'resume', isStopped : false}">Resume</button>
+    <button mat-button [mat-dialog-close]="{value : 'quit', isStopped : true}">Quit</button>
+  </div>
+</section>
