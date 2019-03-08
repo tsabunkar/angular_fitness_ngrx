@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { delay } from 'q';
+import { TrainingService } from '../training.service';
 
 @Component({
   selector: 'app-current-training',
@@ -13,11 +14,16 @@ export class CurrentTrainingComponent implements OnInit {
   @Output() trainingExit = new EventEmitter();
   spinnerProgress: any = 0;
   currentSpinnerInterval;
+  exercise: string;
 
-  constructor(private dialogComponent: MatDialog) { }
+  constructor(
+    private dialogComponent: MatDialog,
+    private trainingService: TrainingService
+  ) { }
 
   ngOnInit() {
     this.startOrResumeTraning();
+
   }
 
   onStopCurrentExercies() {
@@ -45,13 +51,22 @@ export class CurrentTrainingComponent implements OnInit {
 
 
   startOrResumeTraning() {
+    let timeIntervalForExerciseInStep;
+    if (this.trainingService.getOnGoingTraining()) {
+      // timeIntervalForExerciseInStep = this.trainingService.getOnGoingTraining().exerciseDuration / 100;
+      const { exerciseDuration, exerciseName } = this.trainingService.getOnGoingTraining();
+      timeIntervalForExerciseInStep = exerciseDuration / 100;
+      this.exercise = exerciseName;
+    }
+
+
     this.currentSpinnerInterval = setInterval(() => {
-      this.spinnerProgress = +this.spinnerProgress + 5;
+      this.spinnerProgress = +this.spinnerProgress + 1;
       if (this.spinnerProgress >= 100) {
         // TO stop this setInterval() js method use -> clearInterval()
         clearInterval(this.currentSpinnerInterval);
       }
-    }, 1000);
+    }, timeIntervalForExerciseInStep * 1000);
   }
 
 

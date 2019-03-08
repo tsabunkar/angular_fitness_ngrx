@@ -298,3 +298,5 @@ ng g c core/header --module core.module --dry-run
 
 To Generate Shared Module :
 ng g m shared  --module app.module --dry-run
+
+ng g s training/training --dry-run --no-spec

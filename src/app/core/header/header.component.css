@@ -15,8 +15,11 @@ a :active {
 }
 
 
-.logout-anchor{
+.logout-anchor {
   cursor: pointer;
 }
 
 
+mat-toolbar {
+  background-color: #363946;
+}

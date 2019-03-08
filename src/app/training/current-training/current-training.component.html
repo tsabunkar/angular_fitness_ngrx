@@ -1,10 +1,14 @@
 <section class="current-train" fxLayout="column" fxLayoutAlign="center center">
   <!-- determinate spinner shld have -> Standard progress indicator, fills from 0% to 100% -->
-  <mat-progress-spinner mode="determinate" [value]="spinnerProgress"></mat-progress-spinner>
+  <mat-progress-spinner mode="determinate" [value]="spinnerProgress">
+  </mat-progress-spinner>
+
   <ng-template #finishedContent>
     <h1>{{spinnerProgress}}%</h1>
   </ng-template>
-  <H1 *ngIf="spinnerProgress >= 100; else finishedContent">Horray Done with your excercies</H1>
+  <H1 *ngIf="spinnerProgress >= 100; else finishedContent">Horray Done with your {{exercise}}  exercie
+      <mat-icon *ngIf="spinnerProgress >= 100">done_outline</mat-icon>
+  </H1>
   <p>Keep on going, you can do it !!</p>
   <button mat-raised-button [color]="'accent'" (click)="onStopCurrentExercies()">Stop</button>
 </section>
