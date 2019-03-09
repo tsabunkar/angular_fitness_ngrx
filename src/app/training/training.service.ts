@@ -60,8 +60,11 @@ export class TrainingService {
     this.exerciseChanged.next(null);
   }
 
-  getCompletedHistoryExercises(): Observable<Exercise[]> {
+ /*  getCompletedHistoryExercises(): Observable<Exercise[]> {
     return of([...this.completedHistoryExercises]);
+  } */
+  getCompletedHistoryExercises(): Exercise[] {
+    return [...this.completedHistoryExercises];
   }
 
 

@@ -16,7 +16,9 @@ import {
   MatProgressSpinnerModule,
   MatDialogModule,
   MatSlideToggleModule,
-  MatTableModule
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -39,7 +41,9 @@ import {
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSlideToggleModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   declarations: [],
   providers: [],
