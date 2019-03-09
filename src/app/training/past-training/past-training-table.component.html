@@ -1,0 +1,43 @@
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="$exercises | async">
+
+    <!-- exerciseId Column -->
+    <ng-container matColumnDef="exerciseId">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.exerciseId}} </td>
+    </ng-container>
+
+    <!-- ExerciseName Column -->
+    <ng-container matColumnDef="exerciseName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.exerciseName}} </td>
+    </ng-container>
+
+    <!-- ExerciseDuration Column -->
+    <ng-container matColumnDef="exerciseDuration">
+      <th mat-header-cell *matHeaderCellDef> Duration </th>
+      <td mat-cell *matCellDef="let element"> {{element.exerciseDuration | number}} </td>
+    </ng-container>
+
+    <!-- CaloriesBurned Column -->
+    <ng-container matColumnDef="caloriesBurned">
+      <th mat-header-cell *matHeaderCellDef> Calories </th>
+      <td mat-cell *matCellDef="let element"> {{element.caloriesBurned | number}} </td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date | date}} </td>
+    </ng-container>
+
+    <!-- ExerciseState Column -->
+    <ng-container matColumnDef="exerciseState">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.exerciseState}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

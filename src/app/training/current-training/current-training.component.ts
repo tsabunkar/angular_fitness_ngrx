@@ -11,7 +11,7 @@ import { TrainingService } from '../training.service';
 })
 export class CurrentTrainingComponent implements OnInit {
 
-  @Output() trainingExit = new EventEmitter();
+  // @Output() trainingExit = new EventEmitter();
   spinnerProgress: any = 0;
   currentSpinnerInterval;
   exercise: string;
@@ -38,8 +38,9 @@ export class CurrentTrainingComponent implements OnInit {
     dialogReference.afterClosed().subscribe(dailogClosedValue => {
       console.log('The dialog was closed', dailogClosedValue);
       if (dailogClosedValue['isStopped']) {
-        this.spinnerProgress = 0;
-        this.trainingExit.emit();
+        // this.spinnerProgress = 0;
+        // this.trainingExit.emit();
+        this.trainingService.exerciseCancelled(this.spinnerProgress);
 
       } else {
         this.startOrResumeTraning();
@@ -64,6 +65,7 @@ export class CurrentTrainingComponent implements OnInit {
       this.spinnerProgress = +this.spinnerProgress + 1;
       if (this.spinnerProgress >= 100) {
         // TO stop this setInterval() js method use -> clearInterval()
+        this.trainingService.exerciseCompleted();
         clearInterval(this.currentSpinnerInterval);
       }
     }, timeIntervalForExerciseInStep * 1000);

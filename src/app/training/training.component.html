@@ -1,6 +1,7 @@
 <mat-tab-group>
   <mat-tab label="New Exercise">
     <!-- <app-new-training (trainingStart)="onGoingTraning = true"></app-new-training> -->
+    <!-- !Using TrainingServices intead of Output and Input decorators -->
     <app-new-training></app-new-training>
   </mat-tab>
   <mat-tab label="Past Exercise">
@@ -9,5 +10,7 @@
 </mat-tab-group>
 
 <section *ngIf="onGoingTraning">
-  <app-current-training (trainingExit)="onGoingTraning = false"></app-current-training>
+  <!-- <app-current-training (trainingExit)="onGoingTraning = false"></app-current-training> -->
+  <!-- !Using TrainingServices intead of Output and Input decorators -->
+  <app-current-training></app-current-training>
 </section>
